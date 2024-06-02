@@ -1,38 +1,73 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
   align-items: top;
+  justify-content: center;
+  display: flex;
+  color: white;
+  background-image: url("https://lh5.googleusercontent.com/ACHuqfCo-vBpu8U-3rhH8eH66r98XJG4H4iDq0M2zfajpYX9mOvlEeMZdjL2gBC1Ayz0WXDIaGBBEy1rDLDxEKGVhbPECP1VewQF5tMJvFssEPrNHL11pRFWP6FbBe6QBXIyM78");
 }
-
 .DSC_ENGINE {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  background-color: rgb(24, 22, 44); /* Fallback color */
+  background-color: rgba(24, 22, 44, 0.7); /* Black w/opacity/see-through */
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  width: 45%;
   text-align: center;
   margin-right: 6px;
 }
 .READ_FUNCTION {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  background-color: rgb(24, 22, 44); /* Fallback color */
+  background-color: rgba(24, 22, 44, 0.7); /* Black w/opacity/see-through */
+
+  filter: blur();
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  width: 45%;
   text-align: center;
-  margin-left: 6px;
+  margin-right: 6px;
 }
-
-/* h1 {
-    margin-bottom: 20px;
-} */
-
+.DSC_right {
+  float: right;
+  display: inline-block;
+  width: 47%;
+}
+.DSC_left {
+  float: left;
+  display: inline-block;
+  width: 47%;
+}
+.READ_right {
+  float: right;
+  display: inline-block;
+  width: 47%;
+}
+.READ_left {
+  float: left;
+  display: inline-block;
+  width: 47%;
+}
 .form-container {
-  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
 }
-
+.form-container {
+  border: 1px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
 input {
   width: 80%;
   padding: 10px;
@@ -40,16 +75,17 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 button {
   padding: 10px 20px;
   border: none;
-  background-color: #007bff;
+  background-color: #16697e;
   color: white;
   border-radius: 4px;
   cursor: pointer;
 }
-
 button:hover {
-  background-color: #0056b3;
+  background-color: #0d3c47;
+}
+.background_image {
+  opacity: 0.5;
 }
