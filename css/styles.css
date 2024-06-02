@@ -1,47 +1,183 @@
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  align-items: top;
+  justify-content: center;
+  display: block;
+  color: white;
+  font-weight: bold;
+  background-image: url("https://lh5.googleusercontent.com/ACHuqfCo-vBpu8U-3rhH8eH66r98XJG4H4iDq0M2zfajpYX9mOvlEeMZdjL2gBC1Ayz0WXDIaGBBEy1rDLDxEKGVhbPECP1VewQF5tMJvFssEPrNHL11pRFWP6FbBe6QBXIyM78");
 }
-
-.container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    text-align: center;
+.fist_row {
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
 }
+.second_row {
+  display: block;
+}
+.DSC_ENGINE {
+  background-color: rgb(24, 22, 44); /* Fallback color */
+  background-color: rgba(24, 22, 44, 0.7); /* Black w/opacity/see-through */
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 23px;
+}
+.READ_FUNCTION {
+  background-color: rgb(24, 22, 44); /* Fallback color */
+  background-color: rgba(24, 22, 44, 0.7); /* Black w/opacity/see-through */
 
-/* h1 {
-    margin-bottom: 20px;
-} */
+  filter: blur();
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+  margin-left: 10px;
+}
+.DSC_right {
+  float: left;
+  display: inline-block;
+  width: 47%;
+}
+.DSC_left {
+  float: right;
+  display: inline-block;
+  width: 47%;
+}
+.READ_right {
+  float: left;
+  display: inline-block;
+  width: 47%;
+}
+.READ_left {
+  float: right;
+  display: inline-block;
+  width: 47%;
+}
 
 .form-container {
-    margin-bottom: 20px;
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.form-container93 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  margin-top: 18px;
+}
+.form-container83 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  padding-bottom: 95px;
+  margin-bottom: 0px;
+}
+.form-container33 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  padding-bottom: 85px;
+}
+.form-container13 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  padding-bottom: 35px;
+}
+.form-container23 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  padding-bottom: 65px;
+  margin-bottom: 0px;
+}
+.form-container52 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.form-container42 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin: 10px 0;
+}
+.form-container62 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin: 10px 0;
+  margin-top: 120px;
+}
+.form-container72 {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  padding-bottom: 35px;
+  margin: 10px 0;
+  margin-top: 185px;
+}
+
+.fform-container {
+  border: 2px solid #e3e3e3;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  display: grid;
+  width: 25%;
+  text-align: center;
+  margin-right: 6px;
 }
 
 input {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-
 button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  background-color: #16697e;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }
-
 button:hover {
-    background-color: #0056b3;
+  background-color: #0d3c47;
+}
+.background_image {
+  opacity: 0.5;
+}
+.return {
+  padding: 10px;
+  margin: 10px 0;
+  text-align: center;
+  word-wrap: break-word;
+}
+.fourth_row2 {
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
 }
