@@ -1,307 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DSCEngine</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
-</head>
-<body>
-    
-    <div class="container">
-        <h1>DSC ENGINE</h1>
-<!--  -->
-        <div class="form-container">
-            <h2>Connect Wallet</h2>
-            <button id="connectButton">Connect</button>
-            <p id="account"></p>
-        </div>
-<!--  -->
-        <div class="form-container">
-            <h2>Approve WETH</h2>
-            <input type="text" id="contractAddress" placeholder="contract Address">
-            <input type="number" id="approveAmount" placeholder="Amount">
-            <button id = "approveButton">Send</button>
-        </div>
-<!-- 1 -->
-        <div class="form-container">
-            <h2>Deposit Collateral And Mint DSC</h2>
-            <input type="text" id="depositTokenAddressAndMint" placeholder="Token Address">
-            <input type="number" id="depositAmountForMint" placeholder="Amount">
-            <input type="number" id="mintAmount" placeholder="Amount">
-            <button id = "depositAndMintDscButton">Deposit And Mint DSC</button>
-        </div>
-<!-- 1.1 -->
-        <div class="form-container">
-            <h2>Deposit Collateral</h2>
-            <input type="text" id="depositTokenAddress" placeholder="Token Address">
-            <input type="number" id="depositAmount" placeholder="Amount">
-            <button id = "depositButton">Deposit</button>
-        </div>
-<!-- 2 -->
-        <div class="form-container">          
-            <h2>Redeem Collateral </h2>
-            <input type="text" id="tokenCollateral" placeholder="Token Collateral">
-            <input type="number" id="redeemAmount" placeholder="Amount Redeem">
-            <button id = "redeemButton">Redeem</button>
-        </div>
+  </head>
+  <body>
+    <div class="DSC_ENGINE">
+      <h1>DSC ENGINE</h1>
+      <!--  -->
+      <div class="form-container">
+        <h2>Connect Wallet</h2>
+        <button id="connectButton">Connect</button>
+        <p id="account"></p>
+      </div>
+      <!--  -->
+      <div class="form-container">
+        <h2>Approve WETH</h2>
+        <input
+          type="text"
+          id="contractAddress"
+          placeholder="contract Address"
+        />
+        <input type="number" id="approveAmount" placeholder="Amount" />
+        <button id="approveButton">Send</button>
+      </div>
+      <!-- 1 -->
+      <div class="form-container">
+        <h2>Deposit Collateral And Mint DSC</h2>
+        <input
+          type="text"
+          id="depositTokenAddressAndMint"
+          placeholder="Token Address"
+        />
+        <input type="number" id="depositAmountForMint" placeholder="Amount" />
+        <input type="number" id="mintAmount" placeholder="Amount" />
+        <button id="depositAndMintDscButton">Deposit And Mint DSC</button>
+      </div>
+      <!-- 1.1 -->
+      <div class="form-container">
+        <h2>Deposit Collateral</h2>
+        <input
+          type="text"
+          id="depositTokenAddress"
+          placeholder="Token Address"
+        />
+        <input type="number" id="depositAmount" placeholder="Amount" />
+        <button id="depositButton">Deposit</button>
+      </div>
+      <!-- 2 -->
+      <div class="form-container">
+        <h2>Redeem Collateral</h2>
+        <input
+          type="text"
+          id="tokenCollateral"
+          placeholder="Token Collateral"
+        />
+        <input type="number" id="redeemAmount" placeholder="Amount Redeem" />
+        <button id="redeemButton">Redeem</button>
+      </div>
 
-        <div class = "form-container">
-            <h2>Redeem Collateral For DSC </h2>
-            <input type="text" id="tokenCollateralForDsc" placeholder="Token Collateral">
-            <input type="number" id="redeemAmountForDsc" placeholder="Amount Collateral">
-            <input type="number" id="amountDscBurn" placeholder="Amount DSC To Burn">
-            <button id = "redeemForDscButton">Redeem</button>
-        </div>
+      <div class="form-container">
+        <h2>Redeem Collateral For DSC</h2>
+        <input
+          type="text"
+          id="tokenCollateralForDsc"
+          placeholder="Token Collateral"
+        />
+        <input
+          type="number"
+          id="redeemAmountForDsc"
+          placeholder="Amount Collateral"
+        />
+        <input
+          type="number"
+          id="amountDscBurn"
+          placeholder="Amount DSC To Burn"
+        />
+        <button id="redeemForDscButton">Redeem</button>
+      </div>
 
-<!-- 3 -->      
-        <div class="form-container">
-            <h2>Mint DSC</h2>
-            <input type="number" id="mintAmount" placeholder="Amount to Mint">
-            <button id = "mintDscButton">Mint</button>
-        </div>
+      <!-- 3 -->
+      <div class="form-container">
+        <h2>Mint DSC</h2>
+        <input type="number" id="mintAmount" placeholder="Amount to Mint" />
+        <button id="mintDscButton">Mint</button>
+      </div>
 
-        <div class="form-container">
-            <h2>Burn DSC</h2>
-            <input type="number" id="burnAmount" placeholder="Amount">
-            <button id = "burnDscButton">Burn</button>
-        </div>
-<!-- 4 -->
-        <div class="form-container">
-            <h2>Deposit collateral and borrow WETH 1 Minute (Demo)</h2>
-            <input type="text" id="tokenAddressForBorrow_1_Mi" placeholder="Token Address">
-            <input type="number" id="amountCollateralForBorrow_1_Mi" placeholder="Amount of Collateral">
-            <input type="number" id="amountWEtherBorrow_1_Mi" placeholder="Amount of WEther">
-            <button id = "depositAndBorrowButton1MinuteButton">Deposit And Borrow</button>
-        </div>
-<!-- 5 -->
-        <div class="form-container"> 
-            <h2>Deposit collateral and borrow WETH 1 Year</h2>
-            <input type="text" id="tokenAddressForBorrow_1_Y" placeholder="Token Address">
-            <input type="number" id="amountCollateralForBorrow_1_Y" placeholder="Amount of Collateral">
-            <input type="number" id="amountWEtherBorrow_1_Y" placeholder="Amount of WEther">
-            <button id = "depositAndBorrowButton1YearButton">Deposit And Borrow</button>
-        </div>
+      <div class="form-container">
+        <h2>Burn DSC</h2>
+        <input type="number" id="burnAmount" placeholder="Amount" />
+        <button id="burnDscButton">Burn</button>
+      </div>
+      <!-- 4 -->
+      <div class="form-container">
+        <h2>Deposit collateral and borrow WETH 1 Minute (Demo)</h2>
+        <input
+          type="text"
+          id="tokenAddressForBorrow_1_Mi"
+          placeholder="Token Address"
+        />
+        <input
+          type="number"
+          id="amountCollateralForBorrow_1_Mi"
+          placeholder="Amount of Collateral"
+        />
+        <input
+          type="number"
+          id="amountWEtherBorrow_1_Mi"
+          placeholder="Amount of WEther"
+        />
+        <button id="depositAndBorrowButton1MinuteButton">
+          Deposit And Borrow
+        </button>
+      </div>
+      <!-- 5 -->
+      <div class="form-container">
+        <h2>Deposit collateral and borrow WETH 1 Year</h2>
+        <input
+          type="text"
+          id="tokenAddressForBorrow_1_Y"
+          placeholder="Token Address"
+        />
+        <input
+          type="number"
+          id="amountCollateralForBorrow_1_Y"
+          placeholder="Amount of Collateral"
+        />
+        <input
+          type="number"
+          id="amountWEtherBorrow_1_Y"
+          placeholder="Amount of WEther"
+        />
+        <button id="depositAndBorrowButton1YearButton">
+          Deposit And Borrow
+        </button>
+      </div>
 
-<!-- 6 -->
-        <div class="form-container">
-            <h2> Redeem collateral and return WETH before 1 Minute</h2>
-            <input type="text" id="tokenCollateralBorrowed_Bf_1Mi" placeholder="Token Address">
-            <input type="number" id="amountCollateralBorrowed_Bf_1Mi" placeholder="Amount of Collateral">
-            <input type="number" id="amountWEther_Bf_1Mi" placeholder="Amount of WEther">               
-            <button id = "redeemBorrowed_Bf_1MiBtn">Redeem And Return</button>
-        </div>
-<!-- 7 -->
-        <div class="form-container">
-            <h2> Redeem collateral and return WETH before 1 Year</h2>
-            <input type="text" id="tokenCollateralBorrowed_Bf_1Y" placeholder="Token Address">
-            <input type="number" id="amountCollateralBorrowed_Bf_1Y" placeholder="Amount of Collateral">
-            <input type="number" id="amountWEther_Bf_1Y" placeholder="Amount of WEther">
-            <button id = "redeemBorrowed_Bf_1YBtn">Redeem And Return</button>
-        </div>
-    
-<!-- 8 -->
-        <div class="form-container">
-            <h2> Redeem all collateral and return WETH after 1 Minute (demo) </h2>
-            <input type="text" id="tokenCollateral_After_1Mi" placeholder="Token Address">
-            <button id = "redeemAndReturnAllButton_After_1MiBtn">Redeem And Return</button>
-        </div>       
-<!-- 9 -->
-        <div class="form-container">
-            <h2> Redeem all collateral and return WETH after 1 Year </h2>
-            <input type="text" id="tokenCollateral_After_1Y" placeholder="Token Address">
-            <button id = "redeemAndReturnAllButton_After_1YBtn">Redeem And Return</button>
-        </div>       
+      <!-- 6 -->
+      <div class="form-container">
+        <h2>Redeem collateral and return WETH before 1 Minute</h2>
+        <input
+          type="text"
+          id="tokenCollateralBorrowed_Bf_1Mi"
+          placeholder="Token Address"
+        />
+        <input
+          type="number"
+          id="amountCollateralBorrowed_Bf_1Mi"
+          placeholder="Amount of Collateral"
+        />
+        <input
+          type="number"
+          id="amountWEther_Bf_1Mi"
+          placeholder="Amount of WEther"
+        />
+        <button id="redeemBorrowed_Bf_1MiBtn">Redeem And Return</button>
+      </div>
+      <!-- 7 -->
+      <div class="form-container">
+        <h2>Redeem collateral and return WETH before 1 Year</h2>
+        <input
+          type="text"
+          id="tokenCollateralBorrowed_Bf_1Y"
+          placeholder="Token Address"
+        />
+        <input
+          type="number"
+          id="amountCollateralBorrowed_Bf_1Y"
+          placeholder="Amount of Collateral"
+        />
+        <input
+          type="number"
+          id="amountWEther_Bf_1Y"
+          placeholder="Amount of WEther"
+        />
+        <button id="redeemBorrowed_Bf_1YBtn">Redeem And Return</button>
+      </div>
 
-<!-- 10 -->
-        <div class="form-container">
-            <h2> Saving WETH For 1 Minute (Demo)</h2>
-            <input type="number" id="amountWEther_Saving_1Mi" placeholder="Amount of WEther">
-            <button id = "savingButton1MinuteBtn">Save</button>
-        </div>
-<!-- 11 -->
-        <div class="form-container">
-            <h2> Saving WETH For 1 Year </h2>
-            <input type="number" id="amountWEther_Saving_1Y" placeholder="Amount of WEther">
-            <button id = "savingButton1YearBtn">Save</button>
-        </div>
+      <!-- 8 -->
+      <div class="form-container">
+        <h2>Redeem all collateral and return WETH after 1 Minute (demo)</h2>
+        <input
+          type="text"
+          id="tokenCollateral_After_1Mi"
+          placeholder="Token Address"
+        />
+        <button id="redeemAndReturnAllButton_After_1MiBtn">
+          Redeem And Return
+        </button>
+      </div>
+      <!-- 9 -->
+      <div class="form-container">
+        <h2>Redeem all collateral and return WETH after 1 Year</h2>
+        <input
+          type="text"
+          id="tokenCollateral_After_1Y"
+          placeholder="Token Address"
+        />
+        <button id="redeemAndReturnAllButton_After_1YBtn">
+          Redeem And Return
+        </button>
+      </div>
 
-<!-- 12 -->
-        <div class="form-container">
-            <h2> Redeem Saved WETH For 1 Minute and mint DSC for Interest (Demo) </h2>
-            <input type="number" id="tokenAddress_Saved_1Mi" placeholder="Amount redeem">
-            <button id = "redeemSaved_1MiBtn">Redeem And Mint</button>
-        </div>
-<!-- 13 -->
-        <div class="form-container">   
-            <h2> Redeem Saved WETH For 1 Year and mint DSC for Interest </h2>
-            <input type="number" id="amountRedeem_Saved_1Mi" placeholder="Amount redeem">   
-            <button id = "redeemSaved_1YBtn">Redeem And Mint</button>
-        </div>
-<!-- 14 -->
-        <div class="form-container">
-            <h2>Mint DSC For Owner</h2>
-            <input type="number" id="mintAmount" placeholder="Amount">
-            <button id = MintForOwnerButton>Mint</button>
-        </div>
+      <!-- 10 -->
+      <div class="form-container">
+        <h2>Saving WETH For 1 Minute (Demo)</h2>
+        <input
+          type="number"
+          id="amountWEther_Saving_1Mi"
+          placeholder="Amount of WEther"
+        />
+        <button id="savingButton1MinuteBtn">Save</button>
+      </div>
+      <!-- 11 -->
+      <div class="form-container">
+        <h2>Saving WETH For 1 Year</h2>
+        <input
+          type="number"
+          id="amountWEther_Saving_1Y"
+          placeholder="Amount of WEther"
+        />
+        <button id="savingButton1YearBtn">Save</button>
+      </div>
+
+      <!-- 12 -->
+      <div class="form-container">
+        <h2>Redeem Saved WETH For 1 Minute and mint DSC for Interest (Demo)</h2>
+        <input
+          type="number"
+          id="tokenAddress_Saved_1Mi"
+          placeholder="Amount redeem"
+        />
+        <button id="redeemSaved_1MiBtn">Redeem And Mint</button>
+      </div>
+      <!-- 13 -->
+      <div class="form-container">
+        <h2>Redeem Saved WETH For 1 Year and mint DSC for Interest</h2>
+        <input
+          type="number"
+          id="amountRedeem_Saved_1Mi"
+          placeholder="Amount redeem"
+        />
+        <button id="redeemSaved_1YBtn">Redeem And Mint</button>
+      </div>
+      <!-- 14 -->
+      <div class="form-container">
+        <h2>Mint DSC For Owner</h2>
+        <input type="number" id="mintAmount" placeholder="Amount" />
+        <button id="MintForOwnerButton">Mint</button>
+      </div>
     </div>
 
-<!-- READ FUNCTION -->
-    <div class="container">
-        <h1>READ FUNCTION</h1>
-<!-- 1 -->
-        <div class="form-container">
-            <h2>Get DSC Token</h2>
-            <button id="getDscBtn">Get DSC Token</button>
-            <p id="dscToken"></p>
-
-        </div>
-<!-- 2 -->
-        <div class="form-container">
-            <h2> Get Account Information</h2>
-            <input type="text" id="getAccInf_DepositAndMint" placeholder="User Address">
-            <button id = "getAccInf_DepositAndMintDscBtn">Get Information</button>
-            <p id="accountInformation_DscMinted"></p>
-            <p id="accountInformation_Collateral"></p>
-        </div>
-<!-- 3 -->
-        <div class="form-container">
-            <h2>Get Account Collateral Value (in USD)</h2>
-            <input type="text" id="getAccountCollateralValueAddress" placeholder="User Address">
-            <button id="getAccountCollateralValueBtn">Get Collateral Value</button>
-            <p id="accountCollateralValue"></p>
-        </div>
-<!-- 4 -->
-        <div class="form-container">
-            <h2>Get Collateral Balance of User (amount of token)</h2>
-            <input type="text" id="getCollateralBalanceAddressUser" placeholder="User Address">
-            <input type="text" id="getCollateralBalanceToken" placeholder="Token Address">
-            <button id="getCollateralBalanceBtn">Get Collateral Balance</button>
-            <p id="collateralBalance"></p>
-        </div>
-<!-- 5 -->
-        <div class="form-container">
-            <h2>Get Health Factor</h2>
-            <input type="text" id="getHealthFactorAddress" placeholder="User Address">
-            <button id="getHealthFactorBtn">Get Health Factor</button>
-            <p id="healthFactor"></p>
-        </div>
-<!-- 6 -->
-        <div class="form-container">
-            <h2>Get Collateral Token</h2>
-            <button id="getCollateralTokenBtn">Get Collateral Token</button>
-            <p id="collateralToken_1"></p>
-            <p id="collateralToken_2"></p>
-        </div>
-<!-- 7 -->
-        <div class="form-container">
-            <h2>Get Minimum Health Factor</h2>
-            <button id="getMinHealthFactorBtn">Get Minimum Health Factor</button>
-            <p id="minHealthFactor"></p>
-        </div>
-<!-- 8 -->
-        <div class="form-container">
-            <h2>Get Interest Rate</h2>
-            <button id="getInterestRateBtn">Get Interest Rate</button>
-            <p id="interestRate"></p>
-        </div>
-<!-- 9 -->
-        <div class="form-container">
-            <h2>Get Borrowing Fee Rate</h2>
-            <button id="getBorrowingFeeRateBtn">Get Borrowing Fee Rate</button>
-            <p id="borrowingFeeRate"></p>
-        </div>
-<!-- 10 -->
-        <div class="form-container">
-            <h2>Get Balance of WETH in Pool</h2>
-            <button id="getBalanceOfWETHBtn">Get Balance of WETH</button>
-            <p id="balanceOfWETH"></p>
-        </div>
-<!-- 10.5 -->
-        <div class="form-container">
-            <h2>Get Time of block now (in second)</h2>
-            <button id="getTimeNowBtn">Get Time Now</button>
-            <p id="blockTimeNow"></p>
-        </div>
-<!-- 11 -->
-        <div class="form-container">
-            <h2>Get End Time Saving (in second)</h2>
-            <input type="text" id="getEndTimeSavingAddress" placeholder="User Address">
-            <button id="getEndTimeSavingBtn">Get End Time Saving</button>
-            <p id="endTimeSaving"></p>
-        </div>
-<!-- 12 -->
-        <div class="form-container">
-            <h2>Get End Time Borrowing (in second)</h2>
-            <input type="text" id="getEndTimeBorrowingAddress" placeholder="User Address">
-            <button id="getEndTimeBorrowingBtn">Get End Time Borrowing</button>
-            <p id="endTimeBorrowing"></p>
-        </div>
-<!-- 13 -->
-        <div class="form-container">
-            <h2>Get Amount WETH Saved</h2>
-            <input type="text" id="getWETHSavedAddress" placeholder="User Address">
-            <button id="getWETHSavedBtn">Get WETH Saved</button>
-            <p id="wethSaved"></p>
-        </div>
-<!-- 14 -->
-        <div class="form-container">
-            <h2>Get WETH Borrowed</h2>
-            <input type="text" id="getWETHBorrowedAddress" placeholder="User Address">
-            <button id="getWETHBorrowedBtn">Get WETH Borrowed</button>
-            <p id="wethBorrowed"></p>
-        </div>
-<!-- 15 -->
-        <div class="form-container">
-            <h2>Get USD Value of a Token</h2>
-            <input type="text" id="getUSDValueOfTokenAddress" placeholder="Token Address">
-            <input type="number" id="getUSDValueOfTokenAmount" placeholder="Amount">
-            <button id="getUSDValueOfTokenBtn">Get USD Value</button>
-            <p id="usdValueOfToken"></p>
-        </div>
-<!-- 16 -->
-        <div class="form-container">
-            <h2>Get Token Amount from USD</h2>
-            <input type="text" id="getTokenAmountFromUSDToken" placeholder="Token Address">
-            <input type="text" id="getTokenAmountFromUSDValue" placeholder="USD Value">
-            <button id="getTokenAmountFromUSDBtn">Get Token Amount</button>
-            <p id="tokenAmountFromUSD"></p>
-        </div>
-<!-- 17 -->
-        <div class="form-container">
-            <h2>Get Health Factor for Borrowing WETH</h2>
-            <input type="text" id="getHealthFactorForBorrowWETHAddress" placeholder="User Address">
-            <button id="getHealthFactorForBorrowWETHBtn">Get Health Factor</button>
-            <p id="healthFactorForBorrowWETH"></p>
-        </div>
-<!-- 18 -->
-        <div class="form-container">
-            <h2>Get DSC Minted for Interest</h2>
-            <input type="text" id="getDSCMintedForInterestAddress" placeholder="User Address">
-            <button id="getDSCMintedForInterestBtn">Get DSC Minted</button>
-            <p id="dscMintedForInterest"></p>
-        </div>
-<!-- 19 -->
-        <div class="form-container">
-            <h2>Get Collateral Deposited for Borrowing Ether</h2>
-            <input type="text" id="getCollateralDepositedForBorrowEtherAddress" placeholder="User Address">
-            <input type="text" id="getCollateralDepositedForBorrowEtherToken" placeholder="Token Address">
-            <button id="getCollateralDepositedForBorrowEtherBtn">Get Collateral Deposited</button>
-            <p id="collateralDepositedForBorrowEther"></p>
-        </div>
-<!-- 20 -->
-        <div class="form-container">
-            <h2>Get Account Collateral Value for Borrowing WETH (in USD)</h2>
-            <input type="text" id="getAccountCollateralValueForBorrowWETHAddress" placeholder="User Address">
-            <button id="getAccountCollateralValueForBorrowWETHBtn">Get Collateral Value</button>
-            <p id="accountCollateralValueForBorrowWETH"></p>
-        </div>
-
+    <!-- READ FUNCTION -->
+    <div class="READ_FUNCTION">
+      <h1>READ FUNCTION</h1>
+      <!-- 1 -->
+      <div class="form-container">
+        <h2>Get DSC Token</h2>
+        <button id="getDscBtn">Get DSC Token</button>
+        <p id="dscToken"></p>
+      </div>
+      <!-- 2 -->
+      <div class="form-container">
+        <h2>Get Account Information</h2>
+        <input
+          type="text"
+          id="getAccInf_DepositAndMint"
+          placeholder="User Address"
+        />
+        <button id="getAccInf_DepositAndMintDscBtn">Get Information</button>
+        <p id="accountInformation_DscMinted"></p>
+        <p id="accountInformation_Collateral"></p>
+      </div>
+      <!-- 3 -->
+      <div class="form-container">
+        <h2>Get Account Collateral Value (in USD)</h2>
+        <input
+          type="text"
+          id="getAccountCollateralValueAddress"
+          placeholder="User Address"
+        />
+        <button id="getAccountCollateralValueBtn">Get Collateral Value</button>
+        <p id="accountCollateralValue"></p>
+      </div>
+      <!-- 4 -->
+      <div class="form-container">
+        <h2>Get Collateral Balance of User (amount of token)</h2>
+        <input
+          type="text"
+          id="getCollateralBalanceAddressUser"
+          placeholder="User Address"
+        />
+        <input
+          type="text"
+          id="getCollateralBalanceToken"
+          placeholder="Token Address"
+        />
+        <button id="getCollateralBalanceBtn">Get Collateral Balance</button>
+        <p id="collateralBalance"></p>
+      </div>
+      <!-- 5 -->
+      <div class="form-container">
+        <h2>Get Health Factor</h2>
+        <input
+          type="text"
+          id="getHealthFactorAddress"
+          placeholder="User Address"
+        />
+        <button id="getHealthFactorBtn">Get Health Factor</button>
+        <p id="healthFactor"></p>
+      </div>
+      <!-- 6 -->
+      <div class="form-container">
+        <h2>Get Collateral Token</h2>
+        <button id="getCollateralTokenBtn">Get Collateral Token</button>
+        <p id="collateralToken_1"></p>
+        <p id="collateralToken_2"></p>
+      </div>
+      <!-- 7 -->
+      <div class="form-container">
+        <h2>Get Minimum Health Factor</h2>
+        <button id="getMinHealthFactorBtn">Get Minimum Health Factor</button>
+        <p id="minHealthFactor"></p>
+      </div>
+      <!-- 8 -->
+      <div class="form-container">
+        <h2>Get Interest Rate</h2>
+        <button id="getInterestRateBtn">Get Interest Rate</button>
+        <p id="interestRate"></p>
+      </div>
+      <!-- 9 -->
+      <div class="form-container">
+        <h2>Get Borrowing Fee Rate</h2>
+        <button id="getBorrowingFeeRateBtn">Get Borrowing Fee Rate</button>
+        <p id="borrowingFeeRate"></p>
+      </div>
+      <!-- 10 -->
+      <div class="form-container">
+        <h2>Get Balance of WETH in Pool</h2>
+        <button id="getBalanceOfWETHBtn">Get Balance of WETH</button>
+        <p id="balanceOfWETH"></p>
+      </div>
+      <!-- 10.5 -->
+      <div class="form-container">
+        <h2>Get Time of block now (in second)</h2>
+        <button id="getTimeNowBtn">Get Time Now</button>
+        <p id="blockTimeNow"></p>
+      </div>
+      <!-- 11 -->
+      <div class="form-container">
+        <h2>Get End Time Saving (in second)</h2>
+        <input
+          type="text"
+          id="getEndTimeSavingAddress"
+          placeholder="User Address"
+        />
+        <button id="getEndTimeSavingBtn">Get End Time Saving</button>
+        <p id="endTimeSaving"></p>
+      </div>
+      <!-- 12 -->
+      <div class="form-container">
+        <h2>Get End Time Borrowing (in second)</h2>
+        <input
+          type="text"
+          id="getEndTimeBorrowingAddress"
+          placeholder="User Address"
+        />
+        <button id="getEndTimeBorrowingBtn">Get End Time Borrowing</button>
+        <p id="endTimeBorrowing"></p>
+      </div>
+      <!-- 13 -->
+      <div class="form-container">
+        <h2>Get Amount WETH Saved</h2>
+        <input
+          type="text"
+          id="getWETHSavedAddress"
+          placeholder="User Address"
+        />
+        <button id="getWETHSavedBtn">Get WETH Saved</button>
+        <p id="wethSaved"></p>
+      </div>
+      <!-- 14 -->
+      <div class="form-container">
+        <h2>Get WETH Borrowed</h2>
+        <input
+          type="text"
+          id="getWETHBorrowedAddress"
+          placeholder="User Address"
+        />
+        <button id="getWETHBorrowedBtn">Get WETH Borrowed</button>
+        <p id="wethBorrowed"></p>
+      </div>
+      <!-- 15 -->
+      <div class="form-container">
+        <h2>Get USD Value of a Token</h2>
+        <input
+          type="text"
+          id="getUSDValueOfTokenAddress"
+          placeholder="Token Address"
+        />
+        <input
+          type="number"
+          id="getUSDValueOfTokenAmount"
+          placeholder="Amount"
+        />
+        <button id="getUSDValueOfTokenBtn">Get USD Value</button>
+        <p id="usdValueOfToken"></p>
+      </div>
+      <!-- 16 -->
+      <div class="form-container">
+        <h2>Get Token Amount from USD</h2>
+        <input
+          type="text"
+          id="getTokenAmountFromUSDToken"
+          placeholder="Token Address"
+        />
+        <input
+          type="text"
+          id="getTokenAmountFromUSDValue"
+          placeholder="USD Value"
+        />
+        <button id="getTokenAmountFromUSDBtn">Get Token Amount</button>
+        <p id="tokenAmountFromUSD"></p>
+      </div>
+      <!-- 17 -->
+      <div class="form-container">
+        <h2>Get Health Factor for Borrowing WETH</h2>
+        <input
+          type="text"
+          id="getHealthFactorForBorrowWETHAddress"
+          placeholder="User Address"
+        />
+        <button id="getHealthFactorForBorrowWETHBtn">Get Health Factor</button>
+        <p id="healthFactorForBorrowWETH"></p>
+      </div>
+      <!-- 18 -->
+      <div class="form-container">
+        <h2>Get DSC Minted for Interest</h2>
+        <input
+          type="text"
+          id="getDSCMintedForInterestAddress"
+          placeholder="User Address"
+        />
+        <button id="getDSCMintedForInterestBtn">Get DSC Minted</button>
+        <p id="dscMintedForInterest"></p>
+      </div>
+      <!-- 19 -->
+      <div class="form-container">
+        <h2>Get Collateral Deposited for Borrowing Ether</h2>
+        <input
+          type="text"
+          id="getCollateralDepositedForBorrowEtherAddress"
+          placeholder="User Address"
+        />
+        <input
+          type="text"
+          id="getCollateralDepositedForBorrowEtherToken"
+          placeholder="Token Address"
+        />
+        <button id="getCollateralDepositedForBorrowEtherBtn">
+          Get Collateral Deposited
+        </button>
+        <p id="collateralDepositedForBorrowEther"></p>
+      </div>
+      <!-- 20 -->
+      <div class="form-container">
+        <h2>Get Account Collateral Value for Borrowing WETH (in USD)</h2>
+        <input
+          type="text"
+          id="getAccountCollateralValueForBorrowWETHAddress"
+          placeholder="User Address"
+        />
+        <button id="getAccountCollateralValueForBorrowWETHBtn">
+          Get Collateral Value
+        </button>
+        <p id="accountCollateralValueForBorrowWETH"></p>
+      </div>
     </div>
 
-
-   
     <script src="./index.js" type="module"></script>
-</body>
+  </body>
 </html>
