@@ -4,7 +4,7 @@ import { abiWeth } from "./abiWeth.js"
 
 const WETH = "0xdd13E55209Fd76AfE204dBda4007C227904f0a81"
 
-const contractAddress = "0x4714075cafEC4E07fc3678CF19697fd91A1e9915"
+const contractAddress = "0x7dB748110aBBaC375fAC4730061Cd5244D4e48bF"
 const rpcUrl = "https://eth-sepolia.g.alchemy.com/v2/tyTWOxcpFmiTzLAQxu816zjdAasbpWIp"
 
 const connectButton = document.getElementById("connectButton")
@@ -121,8 +121,8 @@ depositAndMintDscButton.onclick = depositCollateralAndMintDsc
 
 async function depositCollateralAndMintDsc() {
   const tokenAddress = document.getElementById("depositTokenAddressAndMint").value;
-  const amountDeposit = document.getElementById("depositAmountForMint").value;
-  const amountMint = document.getElementById("mintAmount").value;
+  const amountDeposit = document.getElementById("depositAmountCollateralForMint").value;
+  const amountMint = document.getElementById("depositAmountForMint").value;
   console.log(`Depositing and Minting DSC... \n Token Address = '${tokenAddress}' \n Amount Deposit = ${amountDeposit} \n Amount Mint = ${amountMint}`);
 
   if (typeof window.ethereum !== "undefined") {
@@ -206,7 +206,7 @@ async function redeemCollateralForDsc() {
   const tokenAddress = document.getElementById("tokenCollateralForDsc").value;
   const amountCollateral = document.getElementById("redeemAmountForDsc").value;
   const amountBurn = document.getElementById("amountDscBurn").value;
-  console.log(`Redeeming and Burning... \n Token Address`, tokenAddress, `\n Amount`, amount);
+    console.log(`Redeeming... \n Token Address`, tokenAddress, `\n Amount Collateral`, amountCollateral, `\n Amount DSC Burn`, amountBurn);
 
   if (typeof window.ethereum !== "undefined") {
       await loadWeb3();
@@ -290,7 +290,7 @@ async function depositCollateralAndBorrowWETH_1_Minute() {
         try {
             const amountDepositInWei = window.web3.utils.toWei(amountDeposit, 'ether'); // Assuming 18 decimals for tokens
             const amountBorrowInWei = window.web3.utils.toWei(amountBorrow, 'ether'); // Assuming 18 decimals for tokens
-            const transactionResponse = await contract.methods.depositCollateralAndBorrowWETH_1_Minute(tokenAddress, amountDepositInWei, amountBorrowInWei).send({ from: accounts[0] });
+            const transactionResponse = await contract.methods.depositCollateralAndBorrowWEther_1_Minute(tokenAddress, amountDepositInWei, amountBorrowInWei).send({ from: accounts[0] });
             console.log(transactionResponse);
             // Optional: Add function to listen for transaction mining
             listenForTransactionMine(transactionResponse, window.web3);
@@ -316,7 +316,7 @@ depositAndBorrowWETHButton_1Y.onclick = depositCollateralAndBorrowWETH_1_Year
         try {
             const amountDepositInWei = window.web3.utils.toWei(amountDeposit, 'ether'); // Assuming 18 decimals for tokens
             const amountBorrowInWei = window.web3.utils.toWei(amountBorrow, 'ether'); // Assuming 18 decimals for tokens
-            const transactionResponse = await contract.methods.depositCollateralAndBorrowWETH_1_Year(tokenAddress, amountDepositInWei, amountBorrowInWei).send({ from: accounts[0] });
+            const transactionResponse = await contract.methods.depositCollateralAndBorrowWEther_1_Year(tokenAddress, amountDepositInWei, amountBorrowInWei).send({ from: accounts[0] });
             console.log(transactionResponse);
             // Optional: Add function to listen for transaction mining
             listenForTransactionMine(transactionResponse, window.web3);
@@ -440,7 +440,7 @@ async function savingWETHFor_1_Minute() {
       const contract = await loadContract();
       try {
           const amountSavingInWei = window.web3.utils.toWei(amountSaving, 'ether'); // Assuming 18 decimals for tokens
-          const transactionResponse = await contract.methods.savingWETHFor_1_Minute(amountSavingInWei).send({ from: accounts[0] });
+          const transactionResponse = await contract.methods.savingWEtherFor_1_Minute(amountSavingInWei).send({ from: accounts[0] });
           console.log(transactionResponse);
           // Optional: Add function to listen for transaction mining
           listenForTransactionMine(transactionResponse, window.web3);
@@ -463,7 +463,7 @@ async function savingWETHFor_1_year() {
       const contract = await loadContract();
       try {
           const amountSavingInWei = window.web3.utils.toWei(amountSaving, 'ether'); // Assuming 18 decimals for tokens
-          const transactionResponse = await contract.methods.savingWETHFor_1_year(amountSavingInWei).send({ from: accounts[0] });
+          const transactionResponse = await contract.methods.savingWEtherFor_1_Minute(amountSavingInWei).send({ from: accounts[0] });
           console.log(transactionResponse);
           // Optional: Add function to listen for transaction mining
           listenForTransactionMine(transactionResponse, window.web3);
@@ -487,7 +487,7 @@ async function redeemSavedWETHAfter_1_MinuteAndMintDscForInterest() {
       const contract = await loadContract();
       try {
           const amountSavingInWei = window.web3.utils.toWei(amountSaving, 'ether'); // Assuming 18 decimals for tokens
-          const transactionResponse = await contract.methods.redeemSavedWETHAfter_1_MinuteAndMintDscForInterest(amountSavingInWei).send({ from: accounts[0] });
+          const transactionResponse = await contract.methods.redeemSavedWEtherAfter_1_MinuteAndMintDscForInterest(amountSavingInWei).send({ from: accounts[0] });
           console.log(transactionResponse);
           // Optional: Add function to listen for transaction mining
           listenForTransactionMine(transactionResponse, window.web3);
@@ -511,7 +511,7 @@ async function redeemSavedWETHAfter_1_YearAndMintDscForInterest() {
       const contract = await loadContract();
       try {
           const amountSavingInWei = window.web3.utils.toWei(amountSaving, 'ether'); // Assuming 18 decimals for tokens
-          const transactionResponse = await contract.methods.redeemSavedWETHAfter_1_YearAndMintDscForInterest(amountSavingInWei).send({ from: accounts[0] });
+          const transactionResponse = await contract.methods.redeemSavedWEtherAfter_1_YearAndMintDscForInterest(amountSavingInWei).send({ from: accounts[0] });
           console.log(transactionResponse);
           // Optional: Add function to listen for transaction mining
           listenForTransactionMine(transactionResponse, window.web3);
@@ -527,7 +527,7 @@ const mintDscForOwnerButton = document.getElementById("MintForOwnerButton")
 mintDscForOwnerButton.onclick = MintDscForOwner
 
 async function MintDscForOwner() {
-  const amount = document.getElementById("mintAmount").value;
+  const amount = document.getElementById("mintAmountForOwner").value;
   console.log(`Minting... \n Amount = ${amount}`);
 
   if (typeof window.ethereum !== "undefined") {
@@ -832,6 +832,7 @@ async function getWEtherSaved() {
 // 14
 const getWEtherBorrowedButton = document.getElementById("getWETHBorrowedBtn")
 getWEtherBorrowedButton.onclick = getWEtherBorrowed
+
 async function getWEtherBorrowed() {
   const addressUser = document.getElementById("getWETHBorrowedAddress").value;
   console.log(`Getting wether borrowed... \n Address User`, addressUser);
@@ -905,7 +906,10 @@ async function getHealthFactorForBorrowWEther() {
       try {
           const healthFactorForBorrowWEther = await contract.methods.getHealthFactorForBorrowWEther(addressUser).call();
           console.log(healthFactorForBorrowWEther);
-          document.getElementById("healthFactorForBorrowWETH").innerHTML = 'Health Factor: ' + (healthFactorForBorrowWEther/1e18).toFixed(3);
+          if (healthFactorForBorrowWEther == 115792089237316195423570985008687907853269984665640564039457584007913129639935) {
+              document.getElementById("healthFactorForBorrowWETH").innerHTML = 'Not Borrowed Yet';
+          }
+          else {document.getElementById("healthFactorForBorrowWETH").innerHTML = 'Health Factor: ' + (healthFactorForBorrowWEther/1e18).toFixed(3)};
       } catch (error) {
           console.error(error);
       }
