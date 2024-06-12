@@ -9,11 +9,15 @@ body {
   display: block;
   color: white;
   font-weight: bold;
-  background-image: url("https://lh5.googleusercontent.com/ACHuqfCo-vBpu8U-3rhH8eH66r98XJG4H4iDq0M2zfajpYX9mOvlEeMZdjL2gBC1Ayz0WXDIaGBBEy1rDLDxEKGVhbPECP1VewQF5tMJvFssEPrNHL11pRFWP6FbBe6QBXIyM78");
+  background-image: url("https://media.licdn.com/dms/image/D4E12AQEMkfyzABbJJA/article-cover_image-shrink_720_1280/0/1708611148395?e=2147483647&v=beta&t=vm1XFOlNSZWGtMMuhCD-C4yzi-yrWTs6bNU5R555Lng");
 }
 .fist_row {
-  display: block;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-left: 20px;
+    margin-right: 20px;
+  gap: 100px;
+  width: 100%;
 }
 .second_row {
   display: block;
@@ -142,10 +146,10 @@ body {
 .fform-container {
   border: 2px solid #e3e3e3;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px ;
   margin: 10px 0;
-  display: grid;
-  width: 25%;
+  display: inline-block;
+  width: 75%;
   text-align: center;
   margin-right: 6px;
 }
@@ -156,9 +160,12 @@ input {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+  
 }
 button {
-  padding: 10px 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 84%;
   border: none;
   background-color: #16697e;
   color: white;

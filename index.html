@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
   </head>
   <body>
+    <h>GROUP 7</h>
     <div class="fist_row">
       <!--  -->
       <div class="fform-container">
@@ -29,7 +30,7 @@
       <!-- 14 -->
       <div class="fform-container">
         <p>Mint DSC For Owner</p>
-        <input type="number" id="mintAmount" placeholder="Amount" />
+        <input type="number" id="mintAmountForOwner" placeholder="Amount" />
         <button id="MintForOwnerButton">Mint</button>
       </div>
     </div>
@@ -40,18 +41,10 @@
           <div class="DSC_right">
             <!-- 1 -->
             <div class="form-container">
-              <p>Deposit Collateral And Burn DSC</p>
-              <input
-                type="text"
-                id="depositTokenAddressAndMint"
-                placeholder="Token Address"
-              />
-              <input
-                type="number"
-                id="depositAmountForMint"
-                placeholder="Amount"
-              />
-              <input type="number" id="mintAmount" placeholder="Amount" />
+              <p>Deposit Collateral And Mint DSC</p>
+              <input type="text" id="depositTokenAddressAndMint" placeholder="Token Address"/>
+              <input type="number" id="depositAmountCollateralForMint" placeholder="Amount Collateral"/>
+              <input type="number" id="depositAmountForMint" placeholder="Amount DSC For Mint" />
               <button id="depositAndMintDscButton">Deposit And Mint DSC</button>
             </div>
           </div>
@@ -153,7 +146,7 @@
               </p>
               <input
                 type="number"
-                id="tokenAddress_Saved_1Mi"
+                id="amountRedeem_Saved_1Mi"
                 placeholder="Amount redeem"
               />
               <button id="redeemSaved_1MiBtn">Redeem And Mint</button>
@@ -178,7 +171,7 @@
               <p>Redeem Saved WETH For 1 Year and mint DSC for Interest</p>
               <input
                 type="number"
-                id="amountRedeem_Saved_1Mi"
+                id="amountRedeem_Saved_1Y"
                 placeholder="Amount redeem"
               />
               <button id="redeemSaved_1YBtn">Redeem And Mint</button>
@@ -308,7 +301,7 @@
 
       <!-- READ FUNCTION -->
       <div class="READ_FUNCTION">
-        <h1>READ FUNCTION</h1>
+        <h1>GET INFORMATION</h1>
         <div class="fist_row3">
           <div class="READ_right">
             <!-- 1 -->
@@ -440,11 +433,7 @@
             <!-- 13 -->
             <div class="form-container">
               <p>Get Amount WETH Saved</p>
-              <input
-                type="text"
-                id="getWETHSavedAddress"
-                placeholder="User Address"
-              />
+              <input type="text" id="getWETHSavedAddress" placeholder="User Address"/>
               <button id="getWETHSavedBtn">Get WETH Saved</button>
               <p class="return" id="wethSaved"></p>
             </div>
@@ -463,9 +452,16 @@
             </div>
           </div>
         </div>
+        
         <div class="seventh_row3">
           <div class="READ_right">
             <!-- 11 -->
+            <div class="form-container">
+              <p>Get Block Time Now</p>
+              <button id="getTimeNowBtn">Get Block Time Now</button>
+              <p class="return" id="blockTimeNow"></p>
+            </div>
+            
             <div class="form-container">
               <p>Get End Time Saving (in second)</p>
               <input
